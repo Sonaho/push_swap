@@ -6,62 +6,66 @@
 /*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 10:57:54 by aalmela-          #+#    #+#             */
-/*   Updated: 2022/05/13 14:36:16 by aalmela-         ###   ########.fr       */
+/*   Updated: 2022/05/19 11:26:14 by aalmela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	make_array(char *params)
+void	make_array(char *params, t_data *data)
 {
 	char	**arr;
 
-	if (!params)
-		put_error(PARAM);
 	arr = ft_split(params, ' ');
-	order_array(arr, 0);
+	data->size = calculatesize(arr);
+	order_array(arr, 0, data);
 }
 
-void	order_array(char **params, int position)
+void	order_array(char **params, int position, t_data *data)
 {
-	int	i;
-	int	*arr_i;
+	int		i;
 
-	if (!params)
-		put_error(PARAM);
-	arr_i = transform_array(params, position);
-	i = position - 1;
-	while (arr_i[++i])
+	data->a = transform_array(params, position);
+	data->temp = transform_array(params, position);
+	data->moves = 0;
+	if (!data->temp || !data->a || data->a[0] == '\0')
+		put_error(CANTCREATEARRAY);
+	i = -1;
+	while (++i < data->size)
 	{
-		ft_putnbr_fd(arr_i[i], 1);
-		ft_putchar_fd('\n', 1);
+		if (data->temp[i] == data->temp[i + 1])
+			put_error(DUPLICATE);
+		else if (data->temp[i] > data->temp[i + 1] && (i + 1) < data->size)
+		{
+			swap(data->temp, i, i + 1);
+			data->moves ++;
+		}
+		if ((i + 1) == data->size && data->moves > 0)
+		{
+			i = -1;
+			data->moves = 0;
+		}
 	}
+	asign_values(data);
 }
 
-int	*transform_array(char **params, int position)
+void	asign_values(t_data *data)
 {
-	int	*dest;
 	int	i;
 	int	j;
 
-	i = position - 1;
-	while (params[++i])
-	{
-		j = -1;
-		while (params[i][++j] != '\0')
-		{
-			ft_putchar_fd(params[i][j], 1);
-			if (!ft_isdigit((int)params[i][j]))
-				put_error(NODIGIT);
-		}
-	}
-	dest = (int *)ft_calloc(i + 1, sizeof(int *));
-	if (!dest)
-		put_error("Error: Can't create array [transform_array]");
 	i = -1;
-	while (params[++i])
+	while (++i < data->size)
 	{
-		dest[i] = ft_atoi(params[i]);
+		j = 0;
+		while (data->a[j] != data->temp[i])
+			j ++;
+		data->a[j] = i;
 	}
-	return (dest);
+	i = -1;
+	while (++i < data->size)
+		data->temp[i] = i;
+	data->size_a = data->size;
+	data->size_b = 0;
+	data->b = ft_calloc(data->size, sizeof(int *));
 }

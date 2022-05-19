@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   reversero.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 10:39:21 by aalmela-          #+#    #+#             */
-/*   Updated: 2022/05/17 15:04:37 by aalmela-         ###   ########.fr       */
+/*   Created: 2022/05/19 10:35:14 by aalmela-          #+#    #+#             */
+/*   Updated: 2022/05/19 10:46:00 by aalmela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	put_error(char *str)
+void	rra(t_data *data)
 {
-	ft_putendl_fd(str, 2);
+	if (!data)
+		return ;
 }
 
-void	clear_memory(t_data *data)
+void	rrb(t_data *data)
 {
-	if (data->a)
-		free(data->a);
-	if (data->b)
-		free(data->b);
-	if (data->temp)
-		free(data->temp);
+	if (!data)
+		return ;
+}
+
+void	rrr(t_data *data)
+{
+	rra(data);
+	rrb(data);
 }
