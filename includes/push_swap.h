@@ -6,7 +6,7 @@
 /*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 15:16:25 by aalmela-          #+#    #+#             */
-/*   Updated: 2022/05/19 11:14:23 by aalmela-         ###   ########.fr       */
+/*   Updated: 2022/06/22 15:48:03 by aalmela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ void	swap(int *arr, int x, int y);
 void	asign_values(t_data *data);
 void	clear_memory(t_data *data);
 int		calculatesize(char **arr);
+void	print_status(t_data *data, char *lastmove);
+void	sort_less_four(t_data *data);
+void	sort_less_six(t_data *data);
+void	sort_bigger(t_data *data);
+void	sort(t_data *data);
 void	sa(t_data *data);
 void	sb(t_data *data);
 void	ss(t_data *data);
