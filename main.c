@@ -6,7 +6,7 @@
 /*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 15:15:59 by aalmela-          #+#    #+#             */
-/*   Updated: 2022/05/17 15:31:47 by aalmela-         ###   ########.fr       */
+/*   Updated: 2022/06/21 17:34:13 by aalmela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int arg, char **args)
 		data.size = arg - 1;
 		order_array(args, 1, &data);
 	}
+	print_status(&data, "main status");
+	sort(&data);
 	clear_memory(&data);
 	return (1);
 }

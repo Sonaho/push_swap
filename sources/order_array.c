@@ -6,7 +6,7 @@
 /*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 10:57:54 by aalmela-          #+#    #+#             */
-/*   Updated: 2022/05/19 11:26:14 by aalmela-         ###   ########.fr       */
+/*   Updated: 2022/05/30 12:26:57 by aalmela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	asign_values(t_data *data)
 		j = 0;
 		while (data->a[j] != data->temp[i])
 			j ++;
-		data->a[j] = i;
+		data->a[j] = (i + 1);
 	}
 	i = -1;
 	while (++i < data->size)

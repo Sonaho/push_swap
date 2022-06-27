@@ -7,7 +7,8 @@ SRC		= main.c \
 			sources/swaping/swap_ab.c \
 			sources/swaping/push_ab.c \
 			sources/swaping/rotates.c \
-			sources/swaping/reversero.c 
+			sources/swaping/reversero.c \
+			sources/sort/sort.c
 
 CC 		= gcc
 

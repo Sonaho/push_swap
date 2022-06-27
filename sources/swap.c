@@ -6,7 +6,7 @@
 /*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 10:24:40 by aalmela-          #+#    #+#             */
-/*   Updated: 2022/05/17 15:32:15 by aalmela-         ###   ########.fr       */
+/*   Updated: 2022/05/31 13:50:45 by aalmela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,16 @@ int	calculatesize(char **arr)
 	while (arr[i])
 		i ++;
 	return (i);
+}
+
+void	print_status(t_data *data, char *lastmove)
+{
+	int	i;
+
+	i = -1;
+	printf("\n%s\n", lastmove);
+	printf(" a \t b \n");
+	printf("___\t___\n");
+	while (++i < data->size)
+		printf("%d\t%d\tposicion: %d\n", data->a[i], data->b[i], i);
 }
